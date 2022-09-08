@@ -5,7 +5,7 @@ import { HTMLRewriter } from 'https://ghuc.cc/worker-tools/html-rewriter/index.t
 export default async function (_request: Request, context: Context) {
   const response = await context.next();
   const stats = await fetch(
-    'http://localhost:8888/.netlify/functions/get-twitch-stats',
+    'https://lwj-linktree.netlify.app/.netlify/functions/get-twitch-stats',
   );
   const twitch = await stats.json();
 
