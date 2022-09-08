@@ -5,9 +5,12 @@ import { HTMLRewriter } from 'https://ghuc.cc/worker-tools/html-rewriter/index.t
 export default async function (_request: Request, context: Context) {
   const response = await context.next();
 
-  console.log(Deno.env.get('URL') || 'http://localhost:8888');
+  console.log(Deno.env.get('URL') || 'https://lwj-linktree.netlify.app/');
 
-  const apiUrl = new URL(Deno.env.get('URL') || 'http://localhost:8888');
+  // TODO figure out how to get URL from env
+  const apiUrl = new URL(
+    Deno.env.get('URL') || 'https://lwj-linktree.netlify.app/',
+  );
   apiUrl.pathname = '/.netlify/functions/get-twitch-stats';
   const stats = await fetch(apiUrl.toString());
   const twitch = await stats.json();
