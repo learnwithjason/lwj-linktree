@@ -22,3 +22,8 @@
   background: #c10b7e;
   color: #fff;
 }
+
+:global(.stats) {
+  display: block;
+  font-size: 0.875rem;
+}
