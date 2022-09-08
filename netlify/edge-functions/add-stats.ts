@@ -4,9 +4,12 @@ import { HTMLRewriter } from 'https://ghuc.cc/worker-tools/html-rewriter/index.t
 
 export default async function (_request: Request, context: Context) {
   const response = await context.next();
-  const stats = await fetch(
-    'https://lwj-linktree.netlify.app/.netlify/functions/get-twitch-stats',
-  );
+
+  console.log(Deno.env.get('URL') || 'http://localhost:8888');
+
+  const apiUrl = new URL(Deno.env.get('URL') || 'http://localhost:8888');
+  apiUrl.pathname = '/.netlify/functions/get-twitch-stats';
+  const stats = await fetch(apiUrl.toString());
   const twitch = await stats.json();
 
   const formatted = new Intl.NumberFormat('en-US', {
