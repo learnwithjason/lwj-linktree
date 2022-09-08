@@ -10,10 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.1.7"
+    "@jlengstorf/get-twitch-oauth": "^1.0.1",
+    "@netlify/functions": "^1.2.0",
+    "astro": "^1.1.7",
+    "node-fetch": "^3.2.10"
   },
   "devDependencies": {
     "@astrojs/react": "^1.1.1",
+    "@types/node": "^18.7.16",
     "@types/react": "^18.0.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
